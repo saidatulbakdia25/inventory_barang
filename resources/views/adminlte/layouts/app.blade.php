@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
               <span class="ms-3 text-secondary mt-3 mb-1">Master Data</span>
           </li>
-              <a href="{{route('barang')}}" class="nav-link">
+              <a href="{{route('barang.index')}}" class="nav-link">
                   <i class="ti ti-box-padding icon"></i>
                   <span class="nav-link-title">Barang</span>
                 </a>

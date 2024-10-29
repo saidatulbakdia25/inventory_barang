@@ -21,6 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/barang', [App\Http\Controllers\BarangController::class, 'index'])->name('barang');
+Route::resource('barang', BarangController::class);
 Route::get('/barangkeluar', [App\Http\Controllers\BarangKeluarController::class, 'index'])->name('barangkeluar');
 Route::get('/barangmasuk', [App\Http\Controllers\BarangMasukController::class, 'index'])->name('barangmasuk');
