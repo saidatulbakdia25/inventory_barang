@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\BarangKeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/barang', [App\Http\Controllers\BarangController::class, 'index'])->name('barang');
+Route::get('/barangkeluar', [App\Http\Controllers\BarangKeluarController::class, 'index'])->name('barangkeluar');
+Route::get('/barangmasuk', [App\Http\Controllers\BarangMasukController::class, 'index'])->name('barangmasuk');
