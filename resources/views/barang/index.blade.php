@@ -23,15 +23,17 @@
     <div class="content">
         <div class="container mt-5">
             <div class="card">
+
               <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#modal-create">
-                <i class="fas fa-plus">Create barang</i>
-            </button>
+                <i class="fas fa-plus"></i>Create barang
+              </button>
             
             <div class="modal fade" id="modal-create">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Tambah - Barang</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form action="{{ route('barang.store') }}" id="quickForm" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -52,7 +54,7 @@
                             </div>
             
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
@@ -73,66 +75,75 @@
                         <tbody>
                             @foreach ($barangs as $barang)
                             <tr>
-                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ $barang->id }}</td>
                                 <td>{{ $barang->nama_barang }}</td>
                                 <td>{{ $barang->stok }}</td>
                                 <td>{{ $barang->keterangan }}</td>
                                 <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                    data-target="#modal-{{ $barang->id }}">
-                                    <i class="fas fa-edit">Edit</i>
-                                </button>
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $barang->id }}">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
 
-                                <div class="modal fade" id="modal-{{ $barang->id }}">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Edit - {{{ $barang->id }}}</h4>
+                                    <div class="modal fade" id="modal-{{ $barang->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Edit - {{ $barang->nama_barang }}</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('barang.update', $barang->id) }}" id="quickForm" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>Name Barang</label>
+                                                            <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{ $barang->nama_barang }}" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Jumlah</label>
+                                                            <input type="number" name="stok" class="form-control" placeholder="Jumlah barang" value="{{ $barang->stok }}" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Keterangan</label>
+                                                            <input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="{{ $barang->keterangan }}" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-between">
+                                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form action="{{ route('barang.update', $barang->id) }}" id="quickForm" method="POST">
-                                                @csrf
-                                                @method('PUT')
-
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label>Name Barang</label>
-                                                                <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value={{ $barang->nama_barang }}>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <label>Jumlah</label>
-                                                                <input type="number" name="stok" class="form-control" placeholder="Jumlah barang" value={{ $barang->stok }}>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                      <div class="col-md-12">
-                                                          <div class="form-group">
-                                                              <label>Keterangan</label>
-                                                              <input type="text" name="keterangan" class="form-control" placeholder="Jumlah barang" value={{ $barang->keterangan }}>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                                </div>
-                                                <div class="modal-footer justify-content-between">
-                                                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-                                </div>
 
-                                <button type="button" class="btn btn-sm btn-danger btn-delete" data-id="{{ $barang->id }}>
-                                    <i class="fas fa-trash>Delete</i>
-                                </button>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modaldelete-{{ $barang->id }}">
+                                        <i class="fas fa-trash"></i> hapus
+                                    </button>
+
+                                    <div class="modal fade" id="modaldelete-{{ $barang->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="delete-{{ $barang->id }}">Konfirmasi Hapus</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Apakah Anda yakin ingin menghapus barang "{{ $barang->nama_barang }}"?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <form action="{{ route('barang.destroy', $barang->id) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
-                            </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -141,7 +152,6 @@
             </div>
         </div>
     </div>
-    <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 @endsection

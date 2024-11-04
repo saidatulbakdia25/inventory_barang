@@ -84,8 +84,12 @@ class BarangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+   /**
+ * Remove the specified resource from storage.
+ */
     public function destroy(Barang $barang)
     {
-        //
+        $barang->delete();
+        return redirect()->route('barang.index')->with('success', 'Barang berhasil dihapus.');
     }
 }
