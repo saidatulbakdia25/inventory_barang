@@ -42,8 +42,8 @@
                     <td>50</td>
                     <td>12 10 2024</td>
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm" role="button">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm" role="button">Hapus</a>
+                        
+                        <a href="#" class="btn btn-sm btn-danger btn-delete" >Hapus</a>
                     </td>
                 </tr>
             </tbody>
