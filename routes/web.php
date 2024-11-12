@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,24 @@ use App\Http\Controllers\BarangKeluarController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('welcome'); // Mengarahkan ke rute welcome
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('barang', BarangController::class);
-Route::get('/barangkeluar', [App\Http\Controllers\BarangKeluarController::class, 'index'])->name('barangkeluar');
-Route::get('/barangmasuk', [App\Http\Controllers\BarangMasukController::class, 'index'])->name('barangmasuk');
+// Rute untuk halaman welcome
+Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+
+// Rute untuk logout
+Route::post('/logout', [HomeController::class, 'logout'])->name('logout');
+
+// Rute untuk tampilan admin barang (CRUD)
+Route::middleware(['auth'])->group(function () {
+    // Rute untuk halaman home setelah login
+    Route::get('/home', function () {
+        return view('home'); // Pastikan Anda memiliki view home.blade.php
+    })->name('home');
+
+    // Rute untuk resource barang
+    Route::resource('barang', BarangController::class);
+    Route::resource('barangmasuk', BarangMasukController::class);
+    Route::resource('barangkeluar', BarangKeluarController::class);
+});

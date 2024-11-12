@@ -14,4 +14,9 @@ class BarangMasuk extends Model
         'tgl_masuk',
     ];
 
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
+
 }

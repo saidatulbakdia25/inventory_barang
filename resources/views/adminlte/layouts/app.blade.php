@@ -30,11 +30,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="{{ route('home') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
-      </li>
+    </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -70,7 +70,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{ asset('assets/dist/img/image.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+          @auth
+              <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+          @else
+              <a href="#" class="d-block">Guest</a> <!-- Tampilkan 'Guest' jika tidak ada pengguna yang terautentikasi -->
+          @endauth
         </div>
       </div>
 </div>
@@ -91,16 +95,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item">
             <span class="ms-3 text-secondary mt-3 mb-1">Aktifitas</span>
             </li>
-            <a href="{{route('barangkeluar')}}" class="nav-link">
-                  <i class="ti ti-box-padding icon"></i>
-                  <span class="nav-link-title">Barang Keluar</span>
-            </a>
-
-            <a href="{{route('barangmasuk')}}" class="nav-link">
+            <a href="{{route('barangmasuk.index')}}" class="nav-link">
                   <i class="ti ti-box-padding icon"></i>
                   <span class="nav-link-title">Barang Masuk</span>
             </a>
             
+            <a href="{{route('barangkeluar.index')}}" class="nav-link">
+              <i class="ti ti-box-padding icon"></i>
+              <span class="nav-link-title">Barang Keluar</span>
+           </a>
 
             <li class="nav-item">
               <span class="ms-3 text-secondary mt-3 mb-1">Laporan</span>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,10 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        return view('barangmasuk.index');
+        $barangmasuks = BarangMasuk::with('barang')->get(); // Mengambil data barang masuk beserta relasi barang
+        $barangs = Barang::all(); // Mengambil semua barang untuk dropdown
+
+        return view('barangmasuk.index', compact('barangmasuks', 'barangs'));
     }
 
     /**
@@ -20,7 +24,8 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        //
+        $barangs = Barang::all(); // Ambil semua barang
+        return view('barangmasuk.index.create', compact('barangs'));
     }
 
     /**
@@ -28,7 +33,18 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'barang_id' => 'required|exists:barang,id',
+            'stok' => 'required|integer',
+            'tgl_masuk' => 'required|date',
+        ]);
+
+        $barang = Barang::find($request->barang_id);
+        $barang->stok += $request->stok; // Tambah stok barang
+        $barang->save();
+
+        BarangMasuk::create($request->all());
+        return redirect()->route('barangmasuk.index');
     }
 
     /**
@@ -58,8 +74,11 @@ class BarangMasukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BarangMasuk $barangMasuk)
+    public function destroy($id)
     {
-        //
+        $barangmasuk = BarangMasuk::findOrFail($id);
+        $barangmasuk->delete();
+
+        return redirect()->route('barangmasuk.index')->with('success', 'Barang masuk berhasil dihapus.');
     }
 }

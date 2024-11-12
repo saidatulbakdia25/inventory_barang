@@ -14,4 +14,9 @@ class BarangKeluar extends Model
         'tgl_keluar',
         'keterangan',
     ];
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }

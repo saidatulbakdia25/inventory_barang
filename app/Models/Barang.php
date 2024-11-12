@@ -15,4 +15,14 @@ class Barang extends Model
         'stok',
         'keterangan',
     ];
+
+    public function barangMasuks()
+    {
+        return $this->hasMany(BarangMasuk::class);
+    }
+
+    public function barangKeluars()
+    {
+        return $this->hasMany(BarangKeluar::class);
+    }
 }
