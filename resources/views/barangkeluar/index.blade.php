@@ -87,8 +87,8 @@
             <tbody>
                 @foreach ($barangkeluars as $barangkeluar)
                 <tr>
-                    <td>{{ $loop->iteration }}</td> <!-- Menampilkan nomor urut -->
-                    <td>{{ $barangkeluar->barang->nama_barang }}</td> <!-- Mengambil nama barang dari relasi -->
+                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $barangkeluar->barang->nama_barang }}</td> 
                     <td>{{ $barangkeluar->stok }}</td>
                     <td>{{ $barangkeluar->tgl_keluar }}</td>
                     <td>{{ $barangkeluar->keterangan }}</td>

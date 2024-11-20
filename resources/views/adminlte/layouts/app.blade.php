@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+  @yield('addCss')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -108,14 +109,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item">
               <span class="ms-3 text-secondary mt-3 mb-1">Laporan</span>
           </li>
-            <a class="nav-link" href="">
-              <span class="nav-link-icon d-md-none d-lg-inline-block">
-              <i class="ti ti-box-padding icon"></i>                        
-              </span>
-              <span class="nav-link-title">
-                  Stok Barang
-              </span>
-            </a>
+          <a href="{{route('barangstok.index')}}" class="nav-link">
+            <i class="ti ti-box-padding icon"></i>
+            <span class="nav-link-title">Barang Stok</span>
+         </a>
 
            
    
@@ -132,5 +129,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
+@yield('addJavascript')
 </body>
 </html>

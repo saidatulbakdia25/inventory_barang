@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
+use App\Http\Controllers\BarangStokController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +33,11 @@ Route::post('/logout', [HomeController::class, 'logout'])->name('logout');
 // Rute untuk tampilan admin barang (CRUD)
 Route::middleware(['auth'])->group(function () {
     // Rute untuk halaman home setelah login
-    Route::get('/home', function () {
-        return view('home'); // Pastikan Anda memiliki view home.blade.php
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     // Rute untuk resource barang
     Route::resource('barang', BarangController::class);
     Route::resource('barangmasuk', BarangMasukController::class);
     Route::resource('barangkeluar', BarangKeluarController::class);
+    Route::resource('barangstok', BarangStokController::class);
 });

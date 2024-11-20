@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\BarangMasuk;
+use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +17,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        
+        $totalBarang = Barang::count();
+        $totalBarangMasuk = BarangMasuk::sum('stok'); 
+        $totalBarangKeluar = BarangKeluar::sum('stok'); 
+        
+        //Debuging
+        // dd($totalBarang, $totalBarangMasuk, $totalBarangKeluar);
+        
+        return view('home', compact('totalBarang', 'totalBarangMasuk', 'totalBarangKeluar'));
     }
 
     public function logout(Request $request)

@@ -46,66 +46,35 @@
         </header>
 
  <!-- Page body -->
- <div class="page-body">
-        <div class="container-xl">
-
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <form action="" method="get">
-                        <div class="input-icon mb-3">
-                            <input type="search" value="{{ request()->query('keyword') }}" class="form-control w-100"
-                                name="keyword" placeholder="Search…">
-
-                        </div>
-                    </form>
-
+ <div class="content">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Barang</th>
+                                <th class="text-center">Stok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($barangs as $barang)
+                                <tr>
+                                    <td class="align-text-top text-start text-lg-center" data-label="No">
+                                        {{ $loop->index + 1 }}
+                                    </td>
+                                    <td class="align-text-top text-start text-lg-center" data-label="nama_barang">
+                                        {{ $barang->nama_barang }}
+                                    </td>
+                                    <td class="align-text-top text-start text-lg-center" data-label="Stok">
+                                        {{ $barang->stok }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="row row-deck row-cards">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            {{-- Total : {{ $barangKeluarDetails->count() }} --}}
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-vcenter table-mobile-md card-table">
-                                <thead>
-                                    <tr>
-                                        <th class="w-1">No</th>
-                                        <th>Barang</th>
-                                        <th class="text-center">Stok</th>
-                                        <th class="text-center">Masuk</th>
-                                        <th class="text-center">Keluar</th>
-
-
-                                        {{-- <th class="w-1"></th> --}}
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    @foreach ($barangs as $barang)
-                                        <tr>
-                                            <td class="align-text-top text-start text-lg-center" data-label="id">
-                                            {{ $barang->id }}
-                                            </td>
-                                            <td class="align-text-top text-start text-lg-center" data-label="nama_barang">
-                                            {{ $barang->nama_barang }}
-                                            </td>
-                                           
-                                            <td class="align-text-top text-start text-lg-center" data-label="Stok">
-                                            {{ $barang->stok }}
-                                            </td>
-                                            
-                                        </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>                           
-
+        </div>
     </div>
