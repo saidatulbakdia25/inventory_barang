@@ -7,6 +7,8 @@ use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\BarangStokController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
+use App\Exports\BarangsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 /*
@@ -40,4 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('barangmasuk', BarangMasukController::class);
     Route::resource('barangkeluar', BarangKeluarController::class);
     Route::resource('barangstok', BarangStokController::class);
+
+    Route::get('/barangs/export', function () {
+        return Excel::download(new BarangsExport, 'barangs.xlsx');
+    })->name('barangs.export');
 });

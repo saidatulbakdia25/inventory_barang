@@ -13,8 +13,8 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        $barangmasuks = BarangMasuk::with('barang')->get(); // Mengambil data barang masuk beserta relasi barang
-        $barangs = Barang::all(); // Mengambil semua barang untuk dropdown
+        $barangmasuks = BarangMasuk::with('barang')->get(); 
+        $barangs = Barang::all(); 
 
         return view('barangmasuk.index', compact('barangmasuks', 'barangs'));
     }
@@ -24,7 +24,7 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        $barangs = Barang::all(); // Ambil semua barang
+        $barangs = Barang::all(); 
         return view('barangmasuk.index.create', compact('barangs'));
     }
 
@@ -40,7 +40,7 @@ class BarangMasukController extends Controller
         ]);
 
         $barang = Barang::find($request->barang_id);
-        $barang->stok += $request->stok; // Tambah stok barang
+        $barang->stok += $request->stok; 
         $barang->save();
 
         BarangMasuk::create($request->all());

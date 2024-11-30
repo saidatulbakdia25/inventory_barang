@@ -39,6 +39,9 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card">
+                <div class="card-header">
+                <a href="{{ route('barangs.export') }}" class="btn btn-success">Download Excel</a>
+            </div>
                 <div class="card-body p-0">
                     <table class="table table-hover table-bordered" id="data-table">
                         <thead>
@@ -46,6 +49,7 @@
                                 <th>No.</th>
                                 <th>Nama Barang</th>
                                 <th>Stok</th>
+                                <th>Keterangan</th>
                                 <th>Barang Masuk</th>
                                 <th>Barang Keluar</th>
                             </tr>
@@ -56,6 +60,7 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $barang->nama_barang }}</td>
                                 <td>{{ $barang->stok }}</td>
+                                <td>{{ $barang->keterangan }}</td>
                                 <td>{{ $barang->barangmasuks->sum('stok') }}</td> 
                                 <td>{{ $barang->barangkeluars->sum('stok') }}</td>
                             </tr>
