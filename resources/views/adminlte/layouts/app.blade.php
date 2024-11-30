@@ -84,42 +84,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
       <!-- Sidebar Menu -->
-      
-                    <li class="nav-item">
-                  <ion-icon name="server-outline"></ion-icon>
-                  <span class="ms-3 text-secondary mt-3 mb-1">Master Data</span>
+      <ul class="navbar-nav pt-lg-3">
+          <span class="ms-3 text-secondary mt-3 mb-1" style="padding: 1rem;">Master Data</span>
+              <li class="nav-item">
+                    <a class="nav-link" href="{{ route('barang.index') }}">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-book" ></i> <!-- Contoh menggunakan Font Awesome -->
+                    </span>
+                        <span class="nav-link-title" style="padding: 0.5rem;">
+                            Barang
+                        </span>
+                      </a>
               </li>
-              <a href="{{ route('barang.index') }}" class="nav-link">
-                  <ion-icon name="logo-buffer" class="icon"></ion-icon> <!-- Ikon baru ditambahkan di sini -->
-                  <i class="ti ti-box-padding icon"></i>
-                  <span class="nav-link-title">Barang</span>
-              </a>
                                     
-              
-
             <li class="nav-item">
-            <span class="ms-3 text-secondary mt-3 mb-1">Aktifitas</span>
+            <span class="ms-3 text-secondary mt-3 mb-1" style="padding: 1rem;">Aktifitas</span>
             </li>
             <a href="{{route('barangmasuk.index')}}" class="nav-link">
-                  <i class="ti ti-box-padding icon"></i>
-                  <span class="nav-link-title">Barang Masuk</span>
+                <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                <i class="fas fa-arrow-down"></i> <!-- Ikon Font Awesome -->
+                </span>
+                <span class="nav-link-title" style="padding: 0.5rem;">
+                  Barang Masuk
+                </span>
             </a>
             
             <a href="{{route('barangkeluar.index')}}" class="nav-link">
-              <i class="ti ti-box-padding icon"></i>
-              <span class="nav-link-title">Barang Keluar</span>
+              <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                  <i class="fas fa-arrow-up"></i> <!-- Ikon Font Awesome -->
+              </span>
+                  <span class="nav-link-title" style="padding: 0.5rem;">
+                    Barang Keluar
+                  </span>
            </a>
 
             <li class="nav-item">
-              <span class="ms-3 text-secondary mt-3 mb-1">Laporan</span>
+              <span class="ms-3 text-secondary mt-3 mb-1" style="padding: 1rem;">Laporan</span>
           </li>
+      
           <a href="{{route('barangstok.index')}}" class="nav-link">
-            <i class="ti ti-box-padding icon"></i>
-            <span class="nav-link-title">Barang Stok</span>
+              <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                <i class="fas fa-chart-line"></i> <!-- Contoh menggunakan Font Awesome -->
+              </span>
+              <span class="nav-link-title" style="padding: 0.5rem;">
+                Barang Stok
+              </span>
          </a>
-
-           
-   
+         </ul>
     <!-- /.sidebar -->
   </aside>
 
