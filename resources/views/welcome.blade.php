@@ -17,20 +17,24 @@
                         DATA BARANG
                     </a>
                 </h1>
-                <div class="btn-group">
-                   
+                        <div class="btn-group">
+                        <div class="container mt-5">
+                        <div class="d-flex justify-content-center"> <!-- Menggunakan Flexbox untuk mengatur posisi -->
                                     @if (Route::has('login'))
-                                        <div class="p-3 border bg-light">
+                                        
                                             @auth
                                                 <a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
                                             @else
-                                                <a href="{{ route('login') }}" class="btn btn-primary active" aria-current="page">Log in</a>
+                                                <a href="{{ route('login') }}" class="btn btn-primary active" aria-current="page" >Log in</a>
                                                 @if (Route::has('register'))
                                                     <a href="{{ route('register') }}" class="btn btn-primary active" aria-current="page">Register</a>
                                                 @endif
                                             @endauth
-                                        </div>
+                                        
                                     @endif
+                                    
+                        </div>
+                        </div>
                        
              </div>
                                     
