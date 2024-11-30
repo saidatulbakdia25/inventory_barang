@@ -24,10 +24,11 @@
     <div class="content">
          <div class="container mt-5">
          <div class="card">
-
-          <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#modal-create">
-            <i class="fas fa-plus"></i> Create Barang Keluar
-        </button>
+         <div class="col-sm-13">
+                    <button type="button" class="btn btn-primary btn-sm float-right" style="padding: 0.50rem 2rem; margin-bottom: 10px; margin-right: 10px; margin-top: 10px;" autocomplete="off" data-bs-toggle="modal" data-bs-target="#modal-create">
+                        <i class="fas fa-plus fa-xs me-2"></i> Create barang keluar
+                    </button>
+                </div>
         
         <div class="modal fade" id="modal-create">
             <div class="modal-dialog">

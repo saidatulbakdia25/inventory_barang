@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+  <!-- Theme icon -->
+  <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
   @yield('addCss')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -83,13 +85,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- Sidebar Menu -->
       
-          <li class="nav-item">
-              <span class="ms-3 text-secondary mt-3 mb-1">Master Data</span>
-          </li>
-              <a href="{{route('barang.index')}}" class="nav-link">
+                    <li class="nav-item">
+                  <ion-icon name="server-outline"></ion-icon>
+                  <span class="ms-3 text-secondary mt-3 mb-1">Master Data</span>
+              </li>
+              <a href="{{ route('barang.index') }}" class="nav-link">
+                  <ion-icon name="logo-buffer" class="icon"></ion-icon> <!-- Ikon baru ditambahkan di sini -->
                   <i class="ti ti-box-padding icon"></i>
                   <span class="nav-link-title">Barang</span>
-                </a>
+              </a>
                                     
               
 

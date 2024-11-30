@@ -38,15 +38,17 @@
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
+
     <!-- /.content-header -->
 
     <div class="content">
         <div class="container-fluid">
             <div class="card">
-                <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#modal-create">
-                    <i class="fas fa-plus"></i> Create barang
-                </button>
-
+            <div class="col-sm-13">
+                    <button type="button" class="btn btn-primary btn-sm float-right" style="padding: 0.50rem 2rem; margin-bottom: 10px; margin-right: 10px; margin-top: 10px;" autocomplete="off" data-bs-toggle="modal" data-bs-target="#modal-create">
+                        <i class="fas fa-plus fa-xs me-2"></i> Create barang
+                    </button>
+                </div>
                 <div class="modal fade" id="modal-create">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -78,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-
+                    
                 <div class="card-body p-0">
                     <table class="table table-hover table-bordered" id="data-table">
                         <thead>
@@ -103,7 +105,7 @@
                                     </button>
 
                                     <div class="modal fade" id="modal-{{ $barang->id }}">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Edit - {{ $barang->nama_barang }}</h4>
