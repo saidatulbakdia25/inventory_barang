@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://unpkg.com/ionicons@5.5.2/dist/css/ionicons.min.css">
   @yield('addCss')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini"  style="height: 50rem;">
 <div class="wrapper">
 
   <!-- Navbar -->

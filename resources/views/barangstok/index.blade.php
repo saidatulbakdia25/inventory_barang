@@ -40,7 +40,9 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                <a href="{{ route('barangs.export') }}" class="btn btn-success">Download Excel</a>
+                <a href="{{ route('barangs.export') }}" class="btn btn-success">
+                  <i class="fas fa-file-excel"></i> Download Excel
+                </a>
             </div>
                 <div class="card-body p-0">
                     <table class="table table-hover table-bordered" id="data-table">
