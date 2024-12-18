@@ -2,59 +2,51 @@
 
 @section('content')
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <div class="page">
         <!-- Navbar -->
         <header class="navbar navbar-expand-md d-print-none">
-            <div class="container-xl">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
-                    aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                    <a href=".">
-                        {{-- <img src="./static/logo.svg" width="110" height="32" alt="Tabler"
-                            class="navbar-brand-image"> --}}
-                        DATA BARANG
-                    </a>
-                </h1>
-                        <div class="btn-group">
-                        <div class="container mt-5">
-                        <div class="d-flex justify-content-center"> <!-- Menggunakan Flexbox untuk mengatur posisi -->
-                                    @if (Route::has('login'))
-                                        
-                                            @auth
-                                                <a href="{{ url('/home') }}" class="btn btn-primary">Home</a>
-                                            @else
-                                                <a href="{{ route('login') }}" class="btn btn-primary active" aria-current="page" >Log in</a>
-                                                @if (Route::has('register'))
-                                                    <a href="{{ route('register') }}" class="btn btn-primary active" aria-current="page">Register</a>
-                                                @endif
-                                            @endauth
-                                        
-                                    @endif
-                                    
-                        </div>
-                        </div>
-                       
-             </div>
-                                    
-                  
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
-                        <ul class="navbar-nav">
-
-                        </ul>
-                    </div>
+        <div class="table-responsive">
+        <div class="container-xl">
+            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-1 centered-content">
+                <div class="image">
+                    <img src="{{ asset('assets/dist/img/image.WEBP') }}" style="width: 150px; height: 150px;" class="img-circle elevation-2" alt="User  Image">
                 </div>
-            </div>
+                <div style="margin-top: 20px;"> <!-- Atur jarak sesuai kebutuhan -->
+                    <a href=".">
+                        PT.SINERGI GULA NUSANTARA
+                    </a>
+                </div>
+            </h1>
+        </div>
+                       
+    </div>
+</div>
         </header>
 
  <!-- Page body -->
  <div class="content">
+ <div class="table-responsive">
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <table class="table table-hover table-bordered">
+                <div class="btn-group">
+                        <div class="container mt-2">
+                        <div class="d-flex justify-content-end">
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/home') }}" class="btn btn-primary mx-2">Home</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn btn-primary active mx-2" aria-current="page">Log in</a>
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="btn btn-primary active mx-2" aria-current="page">Register</a>
+                                    @endif
+                                @endauth
+                            @endif
+                        </div>
+                        </div>   
+                        </div>
+                    <table class="table table-hover table-bordered" style="margin-top: 10px">
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
@@ -82,3 +74,4 @@
             </div>
         </div>
     </div>
+</div>

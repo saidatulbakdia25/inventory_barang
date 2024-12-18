@@ -82,16 +82,17 @@
                 </div>
                     
                 <div class="card-body p-0">
-                    <table class="table table-hover table-bordered" id="data-table">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah</th>
-                                <th>Keterangan</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered" id="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nama Barang</th>
+                                    <th>Jumlah</th>
+                                    <th>Keterangan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
                         <tbody>
                             @foreach ($barangs as $barang)
                             <tr>
@@ -101,7 +102,7 @@
                                 <td>{{ $barang->keterangan }}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $barang->id }}">
-                                        <i class="fas fa-edit"></i> Edit
+                                        <i class="fas fa-edit"></i>
                                     </button>
 
                                     <div class="modal fade" id="modal-{{ $barang->id }}">
@@ -138,7 +139,7 @@
                                     </div>
 
                                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modaldelete-{{ $barang->id }}">
-                                        <i class="fas fa-trash"></i> Hapus
+                                        <i class="fas fa-trash"></i>
                                     </button>
 
                                     <div class="modal fade" id="modaldelete-{{ $barang->id }}">
@@ -171,6 +172,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- /.content-wrapper -->
 @endsection

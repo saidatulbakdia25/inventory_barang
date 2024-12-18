@@ -45,6 +45,7 @@
                 </a>
             </div>
                 <div class="card-body p-0">
+                <div class="table-responsive">
                     <table class="table table-hover table-bordered" id="data-table">
                         <thead>
                             <tr>
@@ -69,6 +70,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div>

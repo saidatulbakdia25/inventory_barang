@@ -74,6 +74,7 @@
         </div>
 
     <div class="card-body p-0">
+    <div class="table-responsive">
         <table class="table table-hover mb-0">
             <thead>
                 <tr>
@@ -95,7 +96,7 @@
                     <td>{{ $barangkeluar->keterangan }}</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modaldelete-barangkeluar-{{ $barangkeluar->id }}">
-                            <i class="fas fa-trash"></i> Hapus
+                            <i class="fas fa-trash"></i>
                         </button>
             
                         <div class="modal fade" id="modaldelete-barangkeluar-{{ $barangkeluar->id }}">
@@ -125,6 +126,7 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
          </div>
     </div>

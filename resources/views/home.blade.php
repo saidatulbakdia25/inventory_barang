@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="content-wrapper">
+<div class="table-responsive">
 <div class="content-header">
 <div class="page-header d-print-none">
 <div class="container-xl">
@@ -82,5 +83,6 @@
             </div>
         </div>
     </div>  
+</div>
 </div>
 @endsection
