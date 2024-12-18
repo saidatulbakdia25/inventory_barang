@@ -29,29 +29,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-    </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      
-
-      
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        
-        
-          
-      </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -63,8 +44,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -81,22 +60,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 </div>
-
-
       <!-- Sidebar Menu -->
       <ul class="navbar-nav pt-lg-3">
-          <span class="ms-3 text-secondary mt-3 mb-1" style="padding: 1rem;">Master Data</span>
+        <li class="nav-item">>
+           <a href="{{ route('home') }}" class="nav-link">
+                <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                  <i class="fas fa-home"></i>
+                </span>
+                  <span class="nav-link-title" style="padding: 0.5rem;">
+                      HOME
+                  </span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+          <span class="ms-2 text-secondary mt-3 mb-1" style="padding: 1rem;">Master Data</span>
+        </li>
               <li class="nav-item">
                     <a class="nav-link" href="{{ route('barang.index') }}">
-                    <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
-                        <i class="fas fa-book" ></i> <!-- Contoh menggunakan Font Awesome -->
-                    </span>
-                        <span class="nav-link-title" style="padding: 0.5rem;">
-                            Barang
-                        </span>
+                      <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                          <i class="fas fa-book" ></i> <!-- Contoh menggunakan Font Awesome -->
+                      </span>
+                          <span class="nav-link-title" style="padding: 0.5rem;">
+                              Barang
+                          </span>
                       </a>
               </li>
-                                    
+                               
             <li class="nav-item">
             <span class="ms-3 text-secondary mt-3 mb-1" style="padding: 1rem;">Aktifitas</span>
             </li>
@@ -130,6 +120,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Barang Stok
               </span>
          </a>
+         
+      <li class="nav-item">
+        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+            <span class="nav-link-icon d-md-none d-lg-inline-block" style="margin-left: 2rem; margin-bottom: 0.5rem;">
+                <i class="fas fa-sign-out-alt"></i>
+            </span>
+                <span class="nav-link-title" style="padding: 0.5rem;">
+                  Logout
+                </span>
+          </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </li>
          </ul>
     <!-- /.sidebar -->
   </aside>
