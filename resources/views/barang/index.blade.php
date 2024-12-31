@@ -64,12 +64,20 @@
                                         <input type="text" name="name_barang" class="form-control" placeholder="Nama Barang" required>
                                     </div>
                                     <div class="form-group">
+                                        <label>Stok Awal</label>
+                                        <input type="number" name="stok_awal" class="form-control" placeholder="stok_awal Barang" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Stok</label>
                                         <input type="number" name="stok" class="form-control" placeholder="Stok Barang" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Keterangan</label>
                                         <input type="text" name="keterangan" class="form-control" placeholder="Keterangan" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tanggal</label>
+                                        <input type="date" name="tanggal" class="form-control" placeholder="tanggal Buat" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
@@ -88,8 +96,10 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Nama Barang</th>
-                                    <th>Jumlah</th>
-                                    <th>Keterangan</th>
+                                    <th>Stok Awal</th>
+                                    <th>Stok</th>
+                                    <th>Keterangan (Satuan)</th>
+                                    <th>tanggal</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -98,8 +108,10 @@
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $barang->nama_barang }}</td>
+                                <td>{{ $barang->stok_awal }}</td>
                                 <td>{{ $barang->stok }}</td>
                                 <td>{{ $barang->keterangan }}</td>
+                                <td>{{ $barang->tanggal }}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $barang->id }}">
                                         <i class="fas fa-edit"></i>
@@ -121,12 +133,20 @@
                                                             <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" value="{{ $barang->nama_barang }}" required>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Jumlah</label>
-                                                            <input type="number" name="stok" class="form-control" placeholder="Jumlah barang" value="{{ $barang->stok }}" required>
+                                                            <label>Stok Awal</label>
+                                                            <input type="number" name="stok_awal" class="form-control" placeholder="Jumlah Barang Awal" value="{{ $barang->stok_awal }}" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Stok</label>
+                                                            <input type="number" name="stok" class="form-control" placeholder="Jumlah Barang" value="{{ $barang->stok }}" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Keterangan</label>
                                                             <input type="text" name="keterangan" class="form-control" placeholder="Keterangan" value="{{ $barang->keterangan }}" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Keterangan</label>
+                                                            <input type="date" name="tanggal" class="form-control" placeholder="tanggal buat" value="{{ $barang->tanggal }}" required>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer justify-content-between">

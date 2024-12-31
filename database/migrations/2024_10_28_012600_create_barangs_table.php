@@ -13,8 +13,10 @@ return new class extends Migration
         Schema::create('barang', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang');
+            $table->integer('stok_awal');
             $table->integer('stok');
             $table->string('keterangan')->nullable();
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

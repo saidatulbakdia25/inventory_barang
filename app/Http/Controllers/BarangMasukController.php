@@ -76,9 +76,11 @@ class BarangMasukController extends Controller
      */
     public function destroy($id)
     {
-        $barangmasuk = BarangMasuk::findOrFail($id);
-        $barangmasuk->delete();
+        BarangMasuk::where('barang_id', $id)->delete();
 
-        return redirect()->route('barangmasuk.index')->with('success', 'Barang masuk berhasil dihapus.');
+        $barang = Barang::findOrFail($id);
+        $barang->delete();
+
+        return redirect()->route('barang.index')->with('success', 'Data berhasil dihapus.');
     }
 }

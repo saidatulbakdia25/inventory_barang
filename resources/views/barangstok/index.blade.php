@@ -51,10 +51,11 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Nama Barang</th>
-                                <th>Stok</th>
-                                <th>Keterangan</th>
+                                <th>Stok Awal</th>
+                                <th>Keterangan (Satuan)</th>
                                 <th>Barang Masuk</th>
                                 <th>Barang Keluar</th>
+                                <th>Sisa Stok</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,10 +63,11 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $barang->nama_barang }}</td>
-                                <td>{{ $barang->stok }}</td>
+                                <td>{{ $barang->stok_awal }}</td>
                                 <td>{{ $barang->keterangan }}</td>
                                 <td>{{ $barang->barangmasuks->sum('stok') }}</td> 
                                 <td>{{ $barang->barangkeluars->sum('stok') }}</td>
+                                <td>{{ $barang->stok }}</td>
                             </tr>
                             @endforeach
                         </tbody>

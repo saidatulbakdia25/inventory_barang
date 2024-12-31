@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="number" name="stok" class="form-control" placeholder="Jumlah Barang" required>
+                                <input type="number" name="stok" class="form-control" placeholder="Jumlah Barang Keluar" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Keluar</label>
