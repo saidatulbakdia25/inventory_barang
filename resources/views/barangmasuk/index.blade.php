@@ -27,7 +27,7 @@
 
          <div class="col-sm-13">
                     <button type="button" class="btn btn-primary btn-sm float-right" style="padding: 0.50rem 2rem; margin-bottom: 10px; margin-right: 10px; margin-top: 10px;" autocomplete="off" data-bs-toggle="modal" data-bs-target="#modal-create">
-                        <i class="fas fa-plus fa-xs me-2"></i> Create barang masuk
+                        <i class="fas fa-plus fa-xs me-2"></i> Tambah Barang Masuk Baru
                     </button>
          </div>
         
@@ -52,11 +52,11 @@
                             </select>
                            </div>
                             <div class="form-group">
-                                <label>Stok</label>
+                                <label>Jumlah</label>
                                 <input type="number" name="stok" class="form-control" placeholder="Stok Barang" required>
                             </div>
                             <div class="form-group">
-                              <label>Stok</label>
+                              <label>Tanggal Masuk</label>
                               <input type="date" name="tgl_masuk" class="form-control" placeholder="tanggal Masuk Barang" required>
                           </div>
                         </div>

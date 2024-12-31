@@ -82,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <i class="fas fa-book" ></i> <!-- Contoh menggunakan Font Awesome -->
                       </span>
                           <span class="nav-link-title" style="padding: 0.5rem;">
-                              Barang
+                              Stok Awal
                           </span>
                       </a>
               </li>
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="fas fa-chart-line"></i> <!-- Contoh menggunakan Font Awesome -->
               </span>
               <span class="nav-link-title" style="padding: 0.5rem;">
-                Barang Stok
+                Rekapan
               </span>
          </a>
          

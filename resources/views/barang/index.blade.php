@@ -46,7 +46,7 @@
             <div class="card">
             <div class="col-sm-13">
                     <button type="button" class="btn btn-primary btn-sm float-right" style="padding: 0.50rem 2rem; margin-bottom: 10px; margin-right: 10px; margin-top: 10px;" autocomplete="off" data-bs-toggle="modal" data-bs-target="#modal-create">
-                        <i class="fas fa-plus fa-xs me-2"></i> Create barang
+                        <i class="fas fa-plus fa-xs me-2"></i> Tambah Barang Baru
                     </button>
                 </div>
                 <div class="modal fade" id="modal-create">
