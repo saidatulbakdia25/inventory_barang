@@ -84,11 +84,17 @@ class BarangKeluarController extends Controller
      */
     public function destroy($id)
     {
-        BarangKeluar::where('barang_id', $id)->delete();
-        
-        $barang = Barang::findOrFail($id);
-        $barang->delete();
+        // Cari data barang keluar berdasarkan ID
+        $barangKeluar = BarangKeluar::findOrFail($id);
 
-        return redirect()->route('barang.index')->with('success', 'Data berhasil dihapus.');
+        // Kembalikan stok barang ke kondisi sebelum barang keluar
+        $barang = $barangKeluar->barang;
+        $barang->stok += $barangKeluar->stok; // Tambahkan kembali stok
+        $barang->save();
+
+        // Hapus data barang keluar
+        $barangKeluar->delete();
+
+        return redirect()->route('barangkeluar.index')->with('success', 'Data barang keluar berhasil dihapus dan stok barang telah diperbarui.');
     }
 }
