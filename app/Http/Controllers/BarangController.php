@@ -35,7 +35,7 @@ class BarangController extends Controller
     {
         {
             $request->validate([
-                'name_barang' => 'required|string|max:255',
+                'nama_barang' => 'required|string|max:255',
                 'stok_awal' => 'required|integer',
                 'stok' => 'required|integer',
                 'keterangan' => 'required|string|nullable',
